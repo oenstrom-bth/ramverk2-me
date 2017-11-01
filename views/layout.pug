@@ -1,0 +1,32 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i")
+        link(rel="stylesheet", href="/css/style.css")
+        title= title
+    body
+        block header
+            header.site-header
+                span.site-title #[a(href="/") Olof Enström]
+                span#menu-button.menu-button
+                    span.bars
+
+        block navbar
+            nav#navbar.site-navbar
+                ul
+                    li #[a(href="/") Home]
+                    li #[a(href="/about") About]
+                    li #[a(href="/report") Report]
+
+        block content
+
+        block footer
+            footer.site-footer
+                p Copyright &copy; 2017 Olof Enström
+        
+        div#overlay.overlay
+        script(src="/js/simple-scrollbar.min.js")
+        script(src="/js/main.js")
