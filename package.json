@@ -1,10 +1,13 @@
 {
     "name": "ramverk2-me",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "license": "MIT",
     "private": true,
     "scripts": {
-        "start": "node app.js"
+        "start": "node ./bin/www",
+        "stylelint": "stylelint **/*.css; exit 0",
+        "eslint": "eslint .; exit 0",
+        "test": "npm run stylelint; npm run eslint;"
     },
     "dependencies": {
         "body-parser": "~1.18.2",
@@ -12,7 +15,6 @@
         "debug": "~2.6.9",
         "express": "~4.15.5",
         "jstransformer-markdown-it": "^2.0.0",
-        "less-middleware": "~2.2.1",
         "morgan": "~1.9.0",
         "pug": "2.0.0-beta11",
         "serve-favicon": "~2.4.5"
