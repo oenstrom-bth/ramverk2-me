@@ -1,0 +1,29 @@
+version: "3"
+services:
+    node8:
+        image: node:8
+        user: "node"
+        working_dir: /home/node/app
+        ports:
+            - "3080:3000"
+        volumes:
+            - ./:/home/node/app
+        command: "npm start"
+    node7:
+        image: node:7
+        user: "node"
+        working_dir: /home/node/app
+        ports:
+            - "3070:3000"
+        volumes:
+            - ./:/home/node/app
+        command: "npm start"
+    node6:
+        image: node:6
+        user: "node"
+        working_dir: /home/node/app
+        ports:
+            - "3060:3000"
+        volumes:
+            - ./:/home/node/app
+        command: "npm start"

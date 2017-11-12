@@ -20,9 +20,10 @@ router.get("/about", (req, res) => {
     });
 });
 
-router.get("/report", (req, res) => {
+router.get("/report/:kmom(kmom\\d+)*?", (req, res) => {
     res.render("report", {
-        title: "Report"
+        title: "Report",
+        kmom: req.params.kmom || "kmom01"
     });
 });
 
