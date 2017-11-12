@@ -233,7 +233,7 @@ csslint:
 .PHONY: stylelint
 stylelint:
 	@$(call HELPTEXT,$@)
-	[ ! -f .stylelintrc.json ] || $(STYLELINT) **/*.css
+	[ ! -f .stylelintrc.json ] || $(STYLELINT) **/*.less
 
 
 
