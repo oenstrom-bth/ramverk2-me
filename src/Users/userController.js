@@ -1,19 +1,16 @@
 "use strict";
 
-let user = require("./user");
+const user = require("./user");
 
-let userController = {
-    getUsers: (req, res) => {
-        let users = user.getUsers();
-
-        res.json(users);
+const userController = {
+    getUsers: () => {
+        return user.getUsers();
     },
 
-    getUser: (req, res) => {
-        let id = req.params.id;
-        let oneUser = user.getUser(id);
+    getUser: (req) => {
+        const id = req.params.id;
 
-        res.json(oneUser);
+        return user.getUser(id);
     }
 };
 

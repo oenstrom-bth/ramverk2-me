@@ -19,13 +19,13 @@ let users = [
     }
 ];
 
-let user = {
+const user = {
     getUsers: () => {
         return users;
     },
 
     getUser: (id) => {
-        let user = users.find(obj => obj.id == id) || {};
+        const user = users.find(obj => obj.id == id) || {};
 
         return user;
     }
