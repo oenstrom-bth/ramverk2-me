@@ -27,4 +27,10 @@ router.get("/report/:kmom(kmom\\d+)*?", (req, res) => {
     });
 });
 
+router.get("/blackjack", (req, res) => {
+    res.render("blackjack", {
+        title: "Black Jack"
+    });
+});
+
 module.exports = router;
