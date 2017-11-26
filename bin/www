@@ -4,9 +4,10 @@
  * Module dependencies.
  */
 
-const app = require('../app');
-const debug = require('debug')('redovisa:server');
-const http = require('http');
+const app    = require('../app');
+const debug  = require('debug')('redovisa:server');
+const http   = require('http');
+const createChat = require("../src/Chat/chat");
 
 /**
  * Get port from environment and store in Express.
@@ -20,6 +21,13 @@ app.set('port', port);
  */
 
 const server = http.createServer(app);
+
+/**
+ * Create Chat server.
+ */
+
+createChat(server);
+
 
 /**
  * Listen on provided port, on all network interfaces.

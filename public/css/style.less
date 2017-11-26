@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i');
 
+@link-color: #00b7ff;
+
 html {
     height: 100%;
     font-family: 'Source Sans Pro', 'Raleway', sans-serif;
@@ -51,7 +53,7 @@ h6 {
 }
 
 a {
-    color: #00b7ff;
+    color: @link-color;
 }
 
 a:hover {
@@ -178,6 +180,122 @@ hr {
     content: "";
     display: table;
     clear: both;
+}
+
+.chat-user {
+    margin-bottom: 0;
+    font-weight: 400;
+
+    span {
+        font-weight: 700;
+    }
+}
+
+.chat-box {
+    border: 1px solid #ccc;
+    border-bottom: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    height: 400px;
+    overflow-y: scroll;
+    font-weight: 400;
+
+    li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 10px;
+        text-align: left;
+
+        &.chat-notification {
+            p {
+                text-align: center;
+                color: #444;
+                font-size: 0.75em;
+                margin: 0;
+            }
+        }
+
+        &.foreign-msg,
+        &.your-msg {
+            p {
+                text-align: left;
+                background-color: #cbcbcb;
+                border-radius: 5px;
+                padding: 5px 8px;
+                margin: 0;
+                display: inline-block;
+                box-sizing: border-box;
+                max-width: 45%;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                word-break: break-word;
+            }
+        }
+
+        &.foreign-msg {
+            span {
+                display: block;
+                padding: 2px 8px;
+                color: #444;
+                font-size: 0.65em;
+            }
+        }
+
+        &.your-msg {
+            text-align: right;
+
+            p {
+                text-align: left;
+                background-color: @link-color;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.chat-form {
+    position: relative;
+    box-shadow: 0 -4px 4px -4px rgba(160, 160, 160, 0.4);
+
+    input[type="text"] {
+        font-family: 'Source Sans Pro', sans-serif;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        padding-right: 85px;
+
+        &:focus {
+            outline: none;
+            border-color: @link-color;
+        }
+    }
+
+    .send-button {
+        font-family: 'Source Sans Pro', sans-serif;
+        position: absolute;
+        background-color: transparent;
+        text-transform: uppercase;
+        color: @link-color;
+        top: 1px;
+        right: 1px;
+        border: none;
+        border-left: 1px solid #ccc;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 75px;
+        height: auto;
+
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            background-color: @link-color;
+            border-color: @link-color;
+            color: #fff;
+        }
+    }
 }
 
 .site-footer {

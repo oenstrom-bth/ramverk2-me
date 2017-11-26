@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    main.main-content
+        h1= title
+        h4.chat-user Connected as #[span.nickname]
+        div.chat-box
+        form.chat-form
+            input(type="text", placeholder="Your message...", class="message")
+            button(class="send-button", type="submit") Send
+
+append scripts
+    script(src="/socket.io/socket.io.js")
+    script(src="/js/chat.js")
+        

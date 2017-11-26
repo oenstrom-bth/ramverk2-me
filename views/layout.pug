@@ -20,13 +20,16 @@ html
                     li #[a(href="/about") About]
                     li #[a(href="/report") Report]
                     li #[a(href="/blackjack") Black Jack]
+                    li #[a(href="/chat") Chat]
 
         block content
 
         block footer
             footer.site-footer
                 p Copyright &copy; 2017 Olof Enström
+
+        block scripts
+            div#overlay.overlay
+            script(src="/js/simple-scrollbar.min.js")
+            script(src="/js/main.js")
         
-        div#overlay.overlay
-        script(src="/js/simple-scrollbar.min.js")
-        script(src="/js/main.js")

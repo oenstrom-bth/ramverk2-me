@@ -1,1 +1,15 @@
-Redovisningstext här.
+### Är du ny på realtidsprogrammering eller har du gjort liknande tidigare?
+Helt ny på realtidsprogrammering. Har testat på lite Ajax och det vi gjorde i webbapp-kursen, men det är ju inte riktigt samma sak.
+
+### Hur gick det att jobba med konceptet realtidsprogrammering i webben, några reflektioner?
+Tycker det gick bra. Har alltid undrat hur det fungerar och nu börjar man få lite mer förståelse för det. Jag gick dock direkt på Socket.io. Kanske det hade varit bättre att börja med ws och native websockets för att få en mer grundläggande förståelse för hur det verkligen fungerar. Men jag tycker Socket.io verkar bra och smidigt, det var därför jag valde det. Och så gillar jag att få lite gratissaker från början. I princip är det ju bara att servern och klienten har en öppen kopplingen och det skickas meddelande/events. Sen gäller det bara att göra något när man tar emot ett event. Trodde det skulle vara svårare än så här med websockets. Visst, jag kör Socket.io men ändå.
+
+### Berätta om din chatt som du integrerade i redovisa-sidan.
+Jag valde att använda socket.io för att göra chatten i redovisa-sidan. Jag känner nu att det hade varit smidigt att göra klienten i React eller något liknande. Då jag använder pug blev det att bara slängde ihop en liten JS-fil där jag connectar till io-servern och uppdaterar DOM:et när jag skickar ett meddelande eller när ett event tas emot. I projektet kommer jag nog använda React, vilket kommer göra allt mycket enklare.
+
+Det blev bara att jag gjorde grundfunktionaliteten i chatten, inga extra uppgifter, då det blev väldigt mycket matte att räkna den här veckan. Jag försökte dock att testa chatten, utan framgångar. Den stod bara och tuggade och efter 5 sekunder så lade den av då Jasmine har en timeout på 5 sekunder. Testade att ändra till 10 sekunder, ingen skillnad. Skulle gärna vilja se hur man löser det.
+
+### Berätta om den realtidsfunktionalitet du väljer att integrera i din klient/server applikation.
+Så som jag har tänkt hittills så är det realtid för att visa och gå med i rum (bord). Väl inne i ett rum så blir det realtid för själva spelet. Först får varje person i rummet skicka ett event med vad de tänker satsa. Självklart en åt gången, så det gäller att hålla koll på vems tur det är. Efter satsningen får alla sina kort, så här får något event skickas ut i rummet med vilka kort alla fick. Sen får varje person, en åt gången, göra sina val, hit, stand och allt som Black Jack innehåller. Så det blir mycket realtid och många events och saker att hålla koll på.
+
+Som sagt blev det mycket matte den här veckan så jag hann inte lägga till så mycket i applikationen. Det jag gjorde var att testa lite med att gå med i nya rum, lämna rum och lista alla rum. Något som jag kommer använda när en användare vill joina ett bord för att spela. Jag lade till en liten express-server för att kunna testa detta. Startar man servern, med “npm start”, så kan man sedan gå till “http://localhost:3000” och leka runt lite i konsolen med tre events. Eventsen som finns är `join room, 'roomId'`, `list rooms` och `leave room`.  Som jag skrev tidigare lyckades jag inte testa chatten, så det blev inga tester här heller.
