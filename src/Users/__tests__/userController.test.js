@@ -1,4 +1,4 @@
-const userController = require("../userController");
+// const userController = require("../userController");
 
 test("uc", () => {
     expect(1).toBe(1);

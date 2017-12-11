@@ -1,4 +1,4 @@
-const user = require("../user");
+// const user = require("../user");
 
 test("u", () => {
     expect(1).toBe(1);
