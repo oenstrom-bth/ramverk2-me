@@ -15,7 +15,8 @@
         "test2": "docker-compose run node_8_alpine npm test",
         "test3": "docker-compose run node_7_alpine npm test",
         "express": "docker-compose up express",
-        "mongo": "docker-compose up mongodb",
+        "mongo": "docker-compose up -d mongodb",
+        "start-docker": "npm run mongo && npm run express",
         "mongoclient": "docker-compose run mongodb mongo mongodb://mongodb/"
     },
     "dependencies": {

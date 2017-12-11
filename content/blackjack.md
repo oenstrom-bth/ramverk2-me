@@ -24,6 +24,24 @@ There will be a lot of events and stuff to keep track of, as I want all the play
 I will be using MongoDB in my application. I might use the Mongoose module, I haven't decided yet. The database will store the user acconts and their money. There will not be much more to save. Unless I get some time over do something extra that requires the use of a database.
 
 
+### Module
+
+I wanted to make a module for validating JavaScript Objects easily. For example when you get a POST request from a register form, you want to make sure the correct fields are submitted using the right format. So that's why I made the module JOV, JavaScript Object Validator. You use it by defining a schema that the JavaScript object should be validated against. The following example schema ensures the data contains an username field, an email field and a password field:
+```
+{
+    username: new jov.string().required().alphanum().min(3).max(20),
+    email: new jov.string().required().email(),
+    password: new jov.string().required().min(6)
+}
+```
+It's pretty self explanatory:
+* The username is required, only accepts alphanumeric characters, it has a required minimum length of 3 and a maximum of 20 characters.
+* The email is required and is only accepted in an email format.
+* The password is required and has a minimum required length of 6 characters.
+
+You can check it out over at [GitHub](https://github.com/oenstrom/jov) or [NPM](https://www.npmjs.com/package/jov).
+
+
 ### Server and client
 The Black Jack app will consist of two parts, a server and a client. So far I have only started to work on the server.
 

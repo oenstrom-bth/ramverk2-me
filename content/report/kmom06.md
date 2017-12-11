@@ -1,1 +1,13 @@
-Redovisningstext här.
+### Reflektera över vikten av infrastruktur för moduler för ett programmeringsspråk.
+Jag tror idag att moduler har blivit en viktig del för att ett programmeringsspråk ska lyckas och fortsätta användas. Det skapar en community något som är viktigt för ett programmeringsspråk. Tittar vi på Node.js och NPM så tror jag NPM hjälpte Node.js att växa och bli så populärt som det är. Det blev väldigt enkelt att dela din kod och använda andras moduler i dina egna projekt. Så pakethanterare som gör det lättare att använda moduler gör det enklare för personer att använda språket som i sin tur ger en större användarbas.
+
+### Vill du ge dig på att förklara att just npm är den tjänsten som växt snabbast av de modulkataloger som presenteras på webbplatsen “Module Counts”?
+Först kom Node.js och det blev extremt coolt att använda JavaScript på serversidan. Samtidigt har JavaScript på frontenden exploderat, men saker som Electron, React, Angular och Vue. Så det går att göra en npm-modul antigen till backend eller frontend. Till och med CLI-verktyg går att göra som en NPM-modul. Till skillnad mot till exempel Packagist där det i princip endast är PHP-backend som gäller. Sen är det väl så att det är väldigt många som kan JavaScript. Har du hållt på någon typ av webbutveckling så har du med stor sannolikhet använt JavaScript.
+
+Som sagt, de två största anledningar är nog att det finns extremt många användare av JavaScript och det väldigt många användningsområden, till exempel inte bara backend.
+
+### Reflektera över hur arbetet gick att välja, separera, publicera och sedan åter integrera modulen i din applikation.
+I min applikation kommer jag bland annat ha kontoregistrering och inloggning. Så jag kände att jag vill ha något smidigt sätt att validera till exempel body:n som kommer in vid en POST-förfrågan. Så som modul fick det bli JOV, JavaScript Object Validator. Det är ju faktiskt en modul som andra kommer kunna använda. För tillfället tror jag modulen har tillräckligt med funktionalitet för det jag kommer använda den till i projektet. Annars får jag bygga vidare på den samtidigt som projektet. Att separera modulen från applikationen var inga svårigheter då den är helt oberoende och generell. Att sedan publicera modulen var hur lätt som helst. Skapa konto, “npm adduser” och “npm publish”. Att sedan använda modulen är ju lättare än om det inte hade varit än modul. Är faktiskt riktigt nöjd med min modul, självklart finns det förbättringar och utökningar att göra. Men det är något jag kan göra efter projektet.
+
+### Sista uppgiften om att dokumentera och färdigställa redovisa-sidan, tog det mycket tid eller hade du allt klart?
+Hade det mesta klart. Fick redigera README.md lite för att rätta till och lägga dit någon textsnutt. Det var även något npm-skript som jag fick fixa till. Annars så gick det väldigt snabbt och det var inte mycket som behövde göras.
