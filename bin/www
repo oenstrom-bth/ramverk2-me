@@ -1,91 +1,35 @@
 #!/usr/bin/env node
+"use strict";
 
-/**
- * Module dependencies.
- */
-
-const app    = require('../app');
-const debug  = require('debug')('redovisa:server');
-const http   = require('http');
-const createChat = require("../src/Chat/chat");
-
-/**
- * Get port from environment and store in Express.
- */
-
-const port = normalizePort(process.env.DBWEBB_PORT || '3000');
-app.set('port', port);
-
-/**
- * Create HTTP server.
- */
-
-const server = http.createServer(app);
-
-/**
- * Create Chat server.
- */
+const mongo        = require("mongodb").MongoClient;
+const app          = require('../app');
+const http         = require('http');
+const createChat   = require("../src/Chat/chat");
+const dsn          = process.env.DBWEBB_DSN || "mongodb://localhost:27017/redovisa";
+const server       = http.createServer(app);
+const port         = app.get("port");
+const routeHandler = require("../routes/index");
 
 createChat(server);
 
+mongo.connect(dsn, (err, db) => {
+    if (err) { throw err; }
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+    app.use(routeHandler(db));
+    app.use((req, res, next) => {
+        const err = new Error("Not Found");
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+        err.status = 404;
+        next(err);
+    });
+    app.use((err, req, res, _next) => {
+        res.locals.message = err.message;
+        res.locals.error = req.app.get("env") === "development" ? err : {};
+        res.status(err.status || 500);
+        res.render("error");
+    });
 
-/**
- * Normalize a port into a number, string, or false.
- */
-function normalizePort(val) {
-    const port = parseInt(val, 10);
-
-    if (isNaN(port)) {
-        // named pipe
-        return val;
-    }
-
-    if (port >= 0) {
-        // port number
-        return port;
-    }
-
-    return false;
-}
-
-/**
- * Event listener for HTTP server "error" event.
- */
-function onError(error) {
-    if (error.syscall !== 'listen') {
-        throw error;
-    }
-
-    const bind = typeof port === 'string'
-        ? 'Pipe ' + port
-        : 'Port ' + port;
-
-    // handle specific listen errors with friendly messages
-    switch (error.code) {
-        case 'EACCES':
-            console.error(bind + ' requires elevated privileges');
-            process.exit(1);
-            break;
-        case 'EADDRINUSE':
-            console.error(bind + ' is already in use');
-            process.exit(1);
-            break;
-        default:
-            throw error;
-    }
-}
-
-/**
- * Event listener for HTTP server "listening" event.
- */
-function onListening() {
-    console.log("Server listening on port " + app.get("port"));
-}
+    server.listen(port);
+    server.on("error", err => { throw err; });
+    server.on("listening", () => console.log(`Server listening on port ${port}`));
+});

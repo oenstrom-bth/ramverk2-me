@@ -19,6 +19,11 @@ After an user has joined a room there will be realtime events for pretty much ev
 There will be a lot of events and stuff to keep track of, as I want all the players to be updated about what the other players are doing. If I have time I will also add a chat, so players can chat with each other while playing in a room.
 
 
+### Database
+
+I will be using MongoDB in my application. I might use the Mongoose module, I haven't decided yet. The database will store the user acconts and their money. There will not be much more to save. Unless I get some time over do something extra that requires the use of a database.
+
+
 ### Server and client
 The Black Jack app will consist of two parts, a server and a client. So far I have only started to work on the server.
 

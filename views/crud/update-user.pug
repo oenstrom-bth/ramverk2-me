@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+    main.main-content
+        h1= title
+        form.form(method="post")
+            label Username
+                input(type="text", name="username", value=user.username)
+            label Email
+                input(type="email", name="email", value=user.email)
+            label Password
+                input(type="password", name="password", value=user.password)
+            input(type="submit", value="Update")
+            if msg
+                p= msg
+        a(href="/users") Show all

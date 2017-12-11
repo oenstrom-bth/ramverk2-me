@@ -314,3 +314,62 @@ hr {
 .width-200 {
     width: 200px;
 }
+
+.form {
+    label {
+        display: block;
+        margin-bottom: 1em;
+
+        input {
+            font-family: inherit;
+            font-size: inherit;
+            display: block;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            padding: 0.25em;
+            width: 100%;
+            max-width: 400px;
+
+            &:focus {
+                outline: none;
+                border-color: @link-color;
+            }
+        }
+    }
+
+    input[type="submit"] {
+        font-family: inherit;
+        font-size: inherit;
+        border: 1px solid @link-color;
+        color: @link-color;
+        background: none;
+        padding: 0.5em 1em;
+
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            background-color: @link-color;
+            color: #fff;
+            outline: none;
+        }
+    }
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+
+    tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr:last-of-type {
+        border: none;
+    }
+
+    td,
+    th {
+        padding: 1em 0.5em;
+    }
+}

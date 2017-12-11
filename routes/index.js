@@ -2,8 +2,12 @@
 
 const router = require("express").Router();
 
-router.use("/", require("./main"));
-router.use("/users", require("./users"));
-router.use("/chat", require("./chat"));
+const routeHandler = (db) => {
+    router.use("/", require("./main"));
+    router.use("/users", require("./users")(db));
+    router.use("/chat", require("./chat"));
 
-module.exports = router;
+    return router;
+};
+
+module.exports = routeHandler;

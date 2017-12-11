@@ -1,0 +1,22 @@
+[
+    {
+        "username": "oenstrom",
+        "email": "olof.enstrom@gmail.com",
+        "password": "password"
+    },
+    {
+        "username": "mos",
+        "email": "mos@dbwebb.se",
+        "password": "password"
+    },
+    {
+        "username": "aurora",
+        "email": "nhdandersson@gmail.com",
+        "password": "password"
+    },
+    {
+        "username": "skvist",
+        "email": "niso16@student.bth.se",
+        "password": "password"
+    }
+]

@@ -1,16 +1,26 @@
 "use strict";
 
-const user = require("./user");
+const { getUsers, getUser, createUser, updateUser, deleteUser } = require("./user");
 
 const userController = {
-    getUsers: () => {
-        return user.getUsers();
+    getUsers: (db) => {
+        return getUsers(db);
     },
 
-    getUser: (req) => {
-        const id = req.params.id;
+    getUser: (db, req) => {
+        return getUser(db, req.params.username);
+    },
 
-        return user.getUser(id);
+    createUser: async (db, req) => {
+        return await createUser(db, req.body);
+    },
+
+    updateUser: async (db, req) => {
+        return await updateUser(db, req.params.username, req.body);
+    },
+
+    deleteUser: (db, req) => {
+        return deleteUser(db, req.params.username);
     }
 };
 
